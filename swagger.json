@@ -1,0 +1,384 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "<牛人相关接口>"
+  },
+  "schemes": [
+    "http"
+  ],
+  "host": "192.168.1.75:3003",
+  "paths": {
+    "/rest/externalToken/masterPeople/:page/:count/:type": {
+      "get": {
+        "tags": [
+          "Node"
+        ],
+        "description": "牛人榜",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "path",
+            "description": "页码",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "count",
+            "in": "path",
+            "description": "数量",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "type",
+            "in": "path",
+            "description": "牛人榜类型【18301-最受欢迎牛人,18302-胜率牛人,18303-稳健牛人,18304-短线牛人】",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/UtilResponseMsg"
+                }
+              ],
+              "properties": {
+                "list": {
+                  "$ref": "#/definitions/masterPeople"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/rest/externalToken/recommendPeople/:page/:count": {
+      "get": {
+        "tags": [
+          "Node"
+        ],
+        "description": "推荐牛人",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "path",
+            "description": "页码",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "count",
+            "in": "path",
+            "description": "数量",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/UtilResponseMsg"
+                }
+              ],
+              "properties": {
+                "list": {
+                  "$ref": "#/definitions/recommendPeople"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/rest/externalToken/moments/:page/:count": {
+      "get": {
+        "tags": [
+          "Node"
+        ],
+        "description": "牛人动态",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "path",
+            "description": "页码",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "count",
+            "in": "path",
+            "description": "数量",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/UtilResponseMsg"
+                }
+              ],
+              "properties": {
+                "list": {
+                  "$ref": "#/definitions/moments"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "UtilResponseMsg": {
+      "type": "object",
+      "properties": {
+        "responCode": {
+          "type": "string",
+          "description": "返回编号"
+        },
+        "responMessage": {
+          "type": "string",
+          "description": "返回消息"
+        }
+      }
+    },
+    "masterPeople": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "description": "用户编号"
+          },
+          "lgnNm": {
+            "type": "string",
+            "description": "登录名"
+          },
+          "pNm": {
+            "type": "string",
+            "description": "昵 称"
+          },
+          "realNm": {
+            "type": "string",
+            "description": "真实姓名"
+          },
+          "pic": {
+            "type": "string",
+            "description": "头像"
+          },
+          "orgPic": {
+            "type": "string",
+            "description": "原头像"
+          },
+          "subscribeCount": {
+            "type": "integer",
+            "description": "关注数"
+          },
+          "pftPct": {
+            "type": "string",
+            "description": "收益比率"
+          },
+          "win": {
+            "type": "string",
+            "description": "胜率"
+          },
+          "maxWtdr": {
+            "type": "string",
+            "description": "最大回撤"
+          },
+          "mthAverageTrdCnt": {
+            "type": "string",
+            "description": "月均交易次数"
+          },
+          "position": {
+            "type": "string",
+            "description": "排名"
+          },
+          "isfollow": {
+            "type": "string",
+            "description": "是否关注"
+          }
+        }
+      }
+    },
+    "recommendPeople": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "description": "用户编号"
+          },
+          "lgnNm": {
+            "type": "string",
+            "description": "登录名"
+          },
+          "pNm": {
+            "type": "string",
+            "description": "昵称"
+          },
+          "pic": {
+            "type": "string",
+            "description": "头像"
+          },
+          "orgPic": {
+            "type": "string",
+            "description": "原头像"
+          },
+          "type": {
+            "type": "string",
+            "description": "类型（mostPopular-人气，mostMoney-胜率，mostSteady-稳健，shortLine-短线）"
+          },
+          "position": {
+            "type": "integer",
+            "description": "排名"
+          },
+          "maxWtdr": {
+            "type": "number",
+            "format": "double",
+            "description": "最大回撤"
+          },
+          "win": {
+            "type": "number",
+            "format": "double",
+            "description": "胜率"
+          },
+          "mthAverageTrdCnt": {
+            "type": "number",
+            "format": "float",
+            "description": "月平均交易次数"
+          },
+          "mthPftPct": {
+            "type": "number",
+            "format": "float",
+            "description": "月收益比率"
+          }
+        }
+      }
+    },
+    "moments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "niuUserActiveId": {
+            "type": "integer",
+            "description": "牛人动态编号"
+          },
+          "userId": {
+            "type": "integer",
+            "description": "用户ID"
+          },
+          "ifEncrypt": {
+            "type": "integer",
+            "description": "牛人动态内容是否加密"
+          },
+          "activeClsTyp": {
+            "type": "integer",
+            "description": "动态 栏目 类型"
+          },
+          "activeSubTyp": {
+            "type": "integer",
+            "description": "动态 小类 类型"
+          },
+          "bussId": {
+            "type": "string",
+            "description": "业务编号"
+          },
+          "activeTitl": {
+            "type": "string",
+            "description": "动态标题"
+          },
+          "activeCon": {
+            "type": "string",
+            "description": "动态内容"
+          },
+          "ifCanComment": {
+            "type": "integer",
+            "description": "是否能点赞"
+          },
+          "ifCanZan": {
+            "type": "integer",
+            "description": "是否能评论"
+          },
+          "crtTm": {
+            "type": "string",
+            "description": "创建时间"
+          },
+          "lstUptTm": {
+            "type": "string",
+            "description": "更新时间"
+          },
+          "niuuserActiveExpandInfos": {
+            "type": "array",
+            "description": "扩展信息",
+            "items": {
+              "$ref": "#/definitions/niuuserActiveExpandInfo"
+            }
+          }
+        }
+      }
+    },
+    "niuuserActiveExpandInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "消息扩展编号"
+        },
+        "niuUserActiveId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "牛人动态编号"
+        },
+        "shrCd": {
+          "type": "string",
+          "description": "股票编号"
+        },
+        "shrNm": {
+          "type": "string",
+          "description": "股票名称"
+        },
+        "bSFlg": {
+          "type": "integer",
+          "description": "买卖标记"
+        },
+        "transPrc": {
+          "type": "integer",
+          "format": "double",
+          "description": "成交价格"
+        },
+        "orgPosition": {
+          "type": "integer",
+          "format": "double",
+          "description": "原 仓位"
+        },
+        "curPosition": {
+          "type": "integer",
+          "format": "double",
+          "description": "当前 仓位"
+        },
+        "crtTm": {
+          "type": "integer",
+          "format": "double",
+          "description": "胜率"
+        }
+      }
+    }
+  }
+}
