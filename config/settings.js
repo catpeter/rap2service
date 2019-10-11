@@ -1,11 +1,11 @@
 var Sequelize = require('sequelize');
 var sequelize = new Sequelize(
-    'test_lyg', // 数据库名
-    'root',   // 用户名
-    'K5pMwOrXgPlRc4MZ',   // 用户密码
+    'your databasename', // 数据库名
+    'your username',   // 用户名
+    'your password',   // 用户密码
     {
         'dialect': 'mysql',  // 数据库使用mysql
-        'host': 'rm-bp19x2vuuxapqh8b6po.mysql.rds.aliyuncs.com', // 数据库服务器ip
+        'host': 'your host', // 数据库服务器ip
         'port': 3306,        // 数据库服务器端口
         'logging': true,  // 日志信息
         // 连接池配置

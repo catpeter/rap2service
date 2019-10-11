@@ -12,15 +12,15 @@ module.exports = appInfo => {
     // 单数据库信息配置
     client: {
       // host
-      host: 'rm-bp19x2vuuxapqh8b6po.mysql.rds.aliyuncs.com',
+      host: 'your host',
       // 端口号
-      port: '3306',
+      port: 'your port',
       // 用户名
-      user: 'root',
+      user: 'your user',
       // 密码
-      password: 'K5pMwOrXgPlRc4MZ',
+      password: 'your password',
       // 数据库名
-      database: 'test_lyg',
+      database: 'your database ',
     },
     // 是否加载到 app 上，默认开启
     app: true,
