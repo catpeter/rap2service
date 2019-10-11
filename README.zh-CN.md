@@ -25,3 +25,5 @@ $ open http://localhost:7002/
 $ node rap2TopSwagger.js rap2.json
 ```
 
+###  rap2 转 swagger 代码来自此链接
+https://blog.csdn.net/youyouwoxing1991/article/details/100916403
