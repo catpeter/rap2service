@@ -12,6 +12,8 @@
 
 - 如果打开http://localhost:7002/ 显示'input success!'表示完成
 
+- rap2.json 来自 http://你的rap2地址/repository/get?id=仓库id
+- 可以在rap2的接口里找到 http://rap2.taobao.org/api
 - rap2 转 swagger rap2ToSwagger.json 为rap2导出的文件
 
 
