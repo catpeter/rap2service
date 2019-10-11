@@ -13,6 +13,7 @@
 
 - if open http://localhost:7002/, 'input success!' means finished.
 
+- rap2.json from http://yourRap2Address/repository/get?id=:repositoryId
 - rap2 input swagger (rap2TopSwagger.json is rap2 export file)
 
 
